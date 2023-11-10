@@ -3,7 +3,6 @@ import { ref } from "vue";
 const contactDetailsForm = ref(false);
 
 function addEntry(e: MouseEvent) {
-  my_modal.close();
   setTimeout(() => {
     contactDetailsForm.value = false;
   }, 300);
@@ -87,7 +86,8 @@ function addContact() {
             ></textarea>
           </div>
         </template>
-
+      </form>
+      <form method="dialog">
         <button
           class="w-full mt-10 btn btn-primary"
           @click="(event:MouseEvent) => addEntry(event)"
