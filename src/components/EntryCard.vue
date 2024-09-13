@@ -20,6 +20,9 @@
           <strong>LinkedIn Profile:</strong>
           <a :href="entry.contactLinkedIn" target="_blank">{{ entry.contactLinkedIn }}</a>
         </p>
+        <p v-if="entry.note">
+          <strong>Note:</strong> {{ entry.note }}
+        </p>
 
         <div class="mt-4 w-full">
           <label class="flex w-full items-center">
@@ -32,9 +35,19 @@
           </label>
         </div>
 
-        <div class="mt-4 flex justify-between">
-          <button @click="editEntry" class="btn btn-sm btn-neutral">Edit</button>
-          <button @click="deleteEntry" class="btn btn-sm btn-error">Delete</button>
+        <div class="card-actions justify-end">
+          <button @click="editEntry" class="btn btn-primary btn-sm">Edit</button>
+          <button @click="showDeleteConfirmation = true" class="btn btn-error btn-sm">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal" :class="{ 'modal-open': showDeleteConfirmation }">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Confirm Deletion</h3>
+        <p class="py-4">Are to delete the entry for "{{ entry.companyName }}"?</p>
+        <div class="modal-action">
+          <button @click="showDeleteConfirmation = false" class="btn">Cancel</button>
+          <button @click="confirmDelete" class="btn btn-error">Delete</button>
         </div>
       </div>
     </div>
@@ -49,6 +62,7 @@ export default {
   data() {
     return {
       showDetails: false,
+      showDeleteConfirmation: false,
       statusOptions: ['pending', 'contacted', 'responded', 'rejected', 'accepted', 'interviewed'],
     };
   },
@@ -79,9 +93,6 @@ export default {
           return '';
       }
     },
-    deleteEntry() {
-      this.$emit('delete-entry', this.entry.id);
-    },
     editEntry() {
       this.$emit('edit-entry', this.entry);
     },
@@ -93,6 +104,10 @@ export default {
         entries[index].status = newStatus;
         localStorage.setItem('entries', JSON.stringify(entries));
       }
+    },
+    confirmDelete() {
+      this.$emit('delete-entry', this.entry.id);
+      this.showDeleteConfirmation = false;
     },
   },
 };

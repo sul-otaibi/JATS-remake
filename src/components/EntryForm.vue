@@ -50,6 +50,13 @@
           <input type="url" v-model="form.contactLinkedIn" class="input input-bordered" />
         </div>
 
+        <div class="form-control mb-4">
+          <label class="label">
+            <span class="label-text">Note</span>
+          </label>
+          <textarea v-model="form.note" class="textarea textarea-bordered" placeholder="Note here ..."></textarea>
+        </div>
+
         <button type="submit" class="btn btn-primary w-full">Save</button>
       </form>
     </div>
@@ -69,6 +76,7 @@ export default {
         contactMethod: '',
         contactName: '',
         contactLinkedIn: '',
+        note: '',
       },
     };
   },

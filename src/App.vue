@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto p-4">
+  <div class="max-w-[40rem] mx-auto p-4">
     <header class="flex justify-between items-center mb-4">
       <h1 class="text-2xl font-black">Job Application Tracker</h1>
       <button @click="showForm = true" class="btn btn-primary">Add Entry</button>
@@ -86,9 +86,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container {
-  max-width: 800px;
-}
-</style>

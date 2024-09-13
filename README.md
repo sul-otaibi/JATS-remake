@@ -50,7 +50,7 @@ To set up the project locally, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/job-application-tracker.git
+   git clone https://github.com/sul-otaibi/JATS-remake.git
    cd job-application-tracker
    ```
 
@@ -63,7 +63,7 @@ To set up the project locally, follow these steps:
 3. **Run the development server**:
 
    ```bash
-   npm run serve
+   npm run dev
    ```
 
 4. **Build for production**:
