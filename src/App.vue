@@ -1,8 +1,8 @@
 <template>
   <div class="max-w-[40rem] mx-auto p-4">
-    <header class="flex justify-between items-center mb-4">
+    <header class="flex items-center justify-between mb-4">
       <h1 class="text-2xl font-black">Job Application Tracker</h1>
-      <button @click="showForm = true" class="btn btn-primary">Add Entry</button>
+      <button @click="showForm = true" class="rounded-md btn btn-primary text-base-100">Add Entry</button>
     </header>
 
     <div class="flex flex-col w-full">
